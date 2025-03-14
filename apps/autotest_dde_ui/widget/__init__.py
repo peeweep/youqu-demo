@@ -1,0 +1,1 @@
+from apps.autotest_dde_ui.widget.dde_ui_widget import DdeUiWidget
