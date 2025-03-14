@@ -1,0 +1,1 @@
+from apps.autotest_dbus.widget.dbus_widget import DbusWidget
