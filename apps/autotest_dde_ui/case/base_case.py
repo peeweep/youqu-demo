@@ -9,4 +9,4 @@ from apps.autotest_dde_ui.dde_ui_assert import DdeUiAssert
 
 class BaseCase(DdeUiAssert):
     """用例基类"""
-    APP_NAME = "dde-ui"
+    APP_NAME = "dde-dock"

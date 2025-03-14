@@ -11,10 +11,10 @@ from src import sleep
 class TestMyCase(BaseCase):
 
     def test_mycase_002(self):
-        """快捷键 ctrl + alt + t 启动终端"""
         # 用例步骤，调用方法层封装好的方法进行操作
-        DdeUiWidget.ctrl_alt_t()
+        DdeUiWidget().click_dde_control_center_on_dde_dock_by_attr()
         # 在关键节点进行断言
+        self.assert_true(True)
         # 等待 2 秒，判断终端是否启动
         sleep(2)
-        self.assert_process_status(True, "deepin-terminal")
+        self.assert_process_status(True, "dde-control-center")

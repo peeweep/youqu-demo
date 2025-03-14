@@ -13,6 +13,10 @@ from src import log
 class DdeUiWidget(BaseWidget):
     """应用方法主类"""
 
-    def click_xxx_by_attr(self):
-        """click xxx button by attribute"""
-        self.dog.find_element_by_attr("xxx").click()
+    def click_dde_control_center_on_dde_dock_by_attr(self):
+        """点击任务栏上的控制中心图标(通过属性定位)"""
+        self.dog.element_click("Btn_control center")
+
+    def click_dde_file_manager_on_dde_dock_by_attr(self):
+        """点击任务栏上的文件管理器图标(通过属性定位)"""
+        self.dog.element_click("Btn_file manager")

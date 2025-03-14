@@ -13,8 +13,8 @@ from src import OcrTextRecognitionError
 class BaseWidget(Src):
     """应用的方法基类"""
     # 注意这里需要修改为应用的包名
-    APP_NAME = "dde-ui"
-    DESC = "/usr/bin/dde-ui"
+    APP_NAME = "dde-dock"
+    DESC = "/usr/bin/dde-dock"
 
     def __init__(self, number=-1, check_start=True):
         kwargs = {}
