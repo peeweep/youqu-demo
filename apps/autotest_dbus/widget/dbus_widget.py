@@ -13,6 +13,8 @@ from src import log
 class DbusWidget(BaseWidget):
     """应用方法主类"""
 
-    def click_xxx_by_attr(self):
-        """click xxx button by attribute"""
-        self.dog.find_element_by_attr("xxx").click()
+
+    def testservice_reply_message(self):
+        """获取 Testservice 返回值"""
+        return self.testservice_obj.session_dbus("AllowGuest")
+        # return self.testservice_obj.get_session_properties_value("Hello")
