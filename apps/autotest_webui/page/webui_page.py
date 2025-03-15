@@ -5,12 +5,10 @@
 :Date  :2025/03/15 15:57:37
 """
 
-from apps.autotest_webui.widget.base_widget import BaseWidget
-from src import log
+from apps.autotest_webui.page.base_page import BasePage
 
 
-@log
-class WebuiWidget(BaseWidget):
+class WebuiPage(BasePage):
     """应用方法主类"""
 
     def click_xxx_by_attr(self):
