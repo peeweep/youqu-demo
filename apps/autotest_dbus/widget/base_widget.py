@@ -13,20 +13,6 @@ from src.dbus_utils import DbusUtils
 
 class BaseWidget(Src):
     """应用的方法基类"""
-    # 注意这里需要修改为应用的包名
-    APP_NAME = "dbus-daemon"
-    DESC = "/usr/bin/dbus-daemon"
-
-    def __init__(self, number=-1, check_start=True):
-        kwargs = {}
-        if number == -1:
-            kwargs["name"] = self.APP_NAME
-            kwargs["description"] = self.DESC
-            kwargs["check_start"] = check_start
-            kwargs["config_path"] = config.UI_INI_PATH
-        if number > 0:
-            kwargs["number"] = number
-        Src.__init__(self, **kwargs)
 
     @property
     def testservice_obj(self) -> DbusUtils:
