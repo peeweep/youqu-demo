@@ -5,12 +5,10 @@
 :Date  :2025/03/15 14:56:18
 """
 
-from apps.autotest_http.widget.base_widget import BaseWidget
-from src import log
+from apps.autotest_http.api.base_api import BaseApi
 
 
-@log
-class HttpWidget(BaseWidget):
+class HttpApi(BaseApi):
     """应用方法主类"""
 
     def click_xxx_by_attr(self):

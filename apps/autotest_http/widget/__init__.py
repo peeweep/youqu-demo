@@ -1,1 +1,0 @@
-from apps.autotest_http.widget.http_widget import HttpWidget
