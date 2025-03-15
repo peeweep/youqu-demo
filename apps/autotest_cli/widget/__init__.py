@@ -1,0 +1,1 @@
+from apps.autotest_cli.widget.cli_widget import CliWidget
