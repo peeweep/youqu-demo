@@ -9,4 +9,3 @@ from apps.autotest_cli.cli_assert import CliAssert
 
 class BaseCase(CliAssert):
     """用例基类"""
-    APP_NAME = "cli"

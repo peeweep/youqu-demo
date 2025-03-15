@@ -5,12 +5,11 @@
 :Date  :2025/03/15 14:25:12
 """
 
-from apps.autotest_cli.widget.base_widget import BaseWidget
-from src import log
+from setting import conf
+from src import Src
 
 
-@log
-class CliWidget(BaseWidget):
+class CliWidget(Src):
     """应用方法主类"""
 
     def create_file_by_dd_cmd(self):
@@ -20,4 +19,3 @@ class CliWidget(BaseWidget):
         self.run_cmd(
             f"dd if=/dev/zero of=/home/{conf.USERNAME}/Desktop/{filename} bs={filesize} count=1"
         )
-
