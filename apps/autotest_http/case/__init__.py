@@ -1,0 +1,1 @@
+from apps.autotest_http.case.base_case import BaseCase
