@@ -4,14 +4,21 @@
 :Author:youqu-user
 :Date  :2025/03/15 15:57:37
 """
+
 from apps.autotest_webui.case import BaseCase
-from apps.autotest_webui.widget import WebuiWidget
+from apps.autotest_webui.page.baidu import BaiDu
+
 
 class TestMyCase(BaseCase):
 
-    def test_mycase_001(self):
-        """this is my test case"""
-        # 用例步骤，调用方法层封装好的方法进行操作
-        WebuiWidget().click_xxx_by_attr()
-        # 在关键节点进行断言
-        self.assert_true(True)
+    def test_mycase_001(self, page):
+        """百度首页搜索 YouQu """
+
+        browser = BaiDu(page)
+        # 在浏览器访问百度首页
+        browser.goto_baidu()
+        # 点击搜索框
+        browser.click_search_box()
+        # 输入YouQu
+        browser.input_keywords("YouQu")
+        self.assert_locator()

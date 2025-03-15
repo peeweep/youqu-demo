@@ -4,8 +4,10 @@
 :Author:youqu-user
 :Date  :2025/03/15 15:57:37
 """
-from src import Src
+from src.webui import WebUI
 
 
-class BasePage(Src):
-    """应用的方法基类"""
+class BasePage(WebUI):
+
+    def __init__(self, page):
+        super().__init__(page)
