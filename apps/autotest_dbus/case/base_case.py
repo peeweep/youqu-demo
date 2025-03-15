@@ -9,4 +9,3 @@ from apps.autotest_dbus.dbus_assert import DbusAssert
 
 class BaseCase(DbusAssert):
     """用例基类"""
-    APP_NAME = "dbus"

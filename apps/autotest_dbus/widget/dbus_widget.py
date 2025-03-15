@@ -16,5 +16,5 @@ class DbusWidget(BaseWidget):
 
     def testservice_reply_message(self):
         """获取 Testservice 返回值"""
-        return self.testservice_obj.session_dbus("AllowGuest")
+        return self.testservice_obj.get_system_properties_value("AllowGuest")
         # return self.testservice_obj.get_session_properties_value("Hello")

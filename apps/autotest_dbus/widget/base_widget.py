@@ -4,10 +4,7 @@
 :Author:youqu-user
 :Date  :2025/03/14 19:30:49
 """
-from apps.autotest_dbus.config import config
 from src import Src
-from src import logger
-from src import OcrTextRecognitionError
 from src.dbus_utils import DbusUtils
 
 
