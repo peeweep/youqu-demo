@@ -13,8 +13,6 @@ from src import log
 class DbusWidget(BaseWidget):
     """应用方法主类"""
 
-
-    def testservice_reply_message(self):
+    def get_user1000_uid(self):
         """获取 Testservice 返回值"""
-        return self.testservice_obj.get_system_properties_value("AllowGuest")
-        # return self.testservice_obj.get_session_properties_value("Hello")
+        return self.user1000_obj.get_system_properties_value("Uid")

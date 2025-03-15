@@ -12,18 +12,11 @@ class BaseWidget(Src):
     """应用的方法基类"""
 
     @property
-    def testservice_obj(self) -> DbusUtils:
+    def user1000_obj(self) -> DbusUtils:
         """授权接口对象"""
-        # dbus_name
-        #     eg.com.deepin.daemon.Appearance
-        # object_path
-        #     eg./com/deepin/daemon/Appearance
-        # interface
-        #     eg.com.deepin.daemon.Appearance
-
-        dbus_name = "com.deepin.daemon.Apps"
-        object_path = "/com/deepin/daemon/Accounts"
-        interface = "com.deepin.daemon.Accounts"
+        dbus_name = "org.freedesktop.Accounts"
+        object_path = "/org/freedesktop/Accounts/User1000"
+        interface = "org.freedesktop.Accounts.User"
         lo = DbusUtils(
             dbus_name, object_path, interface
         )

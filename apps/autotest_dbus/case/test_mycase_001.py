@@ -13,6 +13,6 @@ class TestMyCase(BaseCase):
     def test_mycase_001(self):
         """this is my test case"""
         # 用例步骤，调用方法层封装好的方法进行操作
-        DbusWidget().testservice_reply_message()
+        uid = DbusWidget().get_user1000_uid()
         # 在关键节点进行断言
-        self.assert_true(True)
+        self.assert_equal(1000, uid)
