@@ -1,0 +1,1 @@
+from apps.autotest_webui.widget.webui_widget import WebuiWidget
