@@ -18,9 +18,11 @@ class TestMyCase(BaseCase):
         self.name = "admin"
         self.password = "123456"
         status, content = self.login_by_api()
-        self.assert_api_response(
-            actual_status=status,
-            actual_content=content,
-            expect_status=200,
-            expect_code=0, expect_msg='Login success'
-        )
+        self.assert_true((status == 200) & (content == "Login success"))
+
+        # self.assert_api_response(
+        #     actual_status=status,
+        #     actual_content=content,
+        #     expect_status=200,
+        #     expect_code=0, expect_msg='Login success'
+        # )
