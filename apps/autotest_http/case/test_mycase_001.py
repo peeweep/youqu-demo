@@ -5,7 +5,6 @@
 :Date  :2025/03/15 14:56:18
 """
 from apps.autotest_http.case import BaseCase
-from apps.autotest_http.api import HttpApi
 
 
 class TestMyCase(BaseCase):
@@ -14,12 +13,11 @@ class TestMyCase(BaseCase):
         """【接口测试-管理员】管理员登录"""
         # 接口请求管理员登录
         # 接口请求成功
-        self.api = HttpApi
         self.host = "localhost:5000"
         self.server_domain = "http://" + self.host + "/"
         self.name = "admin"
         self.password = "123456"
-        status, content = self.api.login_by_api()
+        status, content = self.login_by_api()
         self.assert_api_response(
             actual_status=status,
             actual_content=content,

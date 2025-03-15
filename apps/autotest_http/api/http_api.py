@@ -11,6 +11,3 @@ from apps.autotest_http.api.base_api import BaseApi
 class HttpApi(BaseApi):
     """应用方法主类"""
 
-    def click_xxx_by_attr(self):
-        """click xxx button by attribute"""
-        self.dog.find_element_by_attr("xxx").click()
