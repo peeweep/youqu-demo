@@ -18,17 +18,8 @@ class BaseApi(Src):
         # password = hashlib.sha512(password.encode()).hexdigest()
         data = {"username": self.name, "password": self.password}
         headers = self.get_base_headers(headers={})
-        try:
-            ret = requests.post(login_url, headers=headers, json=data, verify=False)
-            headersp = ret.headers['set-cookie'].split(';')
-            self.cookie0 = headersp[0]
-            self.csrf_token_tmp = ret.headers['set-cookie'].split(" Path=/")
-            str2 = self.csrf_token_tmp[1].strip((';'))
-            self.csrf_token = str2.split("=")[-1]
-            self.cookie = self.cookie0 + ";" + "XSRF-TOKEN=" + self.csrf_token
-            return True
-        except:
-            return False
+        r = requests.post(login_url, json=data)
+        return r.status_code, r.data
 
     def get_cookie_token(self):
         header = {'Cookie': self.cookie, 'X-XSRF-TOKEN': self.csrf_token}

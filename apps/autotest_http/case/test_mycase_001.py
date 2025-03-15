@@ -15,7 +15,7 @@ class TestMyCase(BaseCase):
         # 接口请求管理员登录
         # 接口请求成功
         self.api = HttpApi
-        self.host = "localhost"
+        self.host = "localhost:5000"
         self.server_domain = "http://" + self.host + "/"
         self.name = "admin"
         self.password = "123456"
