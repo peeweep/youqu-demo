@@ -6,7 +6,47 @@
 """
 from apps.autotest_http.config import config
 from src import Src
+import requests, urllib3
 
 
 class BaseApi(Src):
     """应用的方法基类"""
+
+    def login_by_api(self):
+        requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
+        login_url = f'{self.server_domain}/api/login'
+        # password = hashlib.sha512(password.encode()).hexdigest()
+        data = {"username": self.name, "password": self.password}
+        headers = self.get_base_headers(headers={})
+        try:
+            ret = requests.post(login_url, headers=headers, json=data, verify=False)
+            headersp = ret.headers['set-cookie'].split(';')
+            self.cookie0 = headersp[0]
+            self.csrf_token_tmp = ret.headers['set-cookie'].split(" Path=/")
+            str2 = self.csrf_token_tmp[1].strip((';'))
+            self.csrf_token = str2.split("=")[-1]
+            self.cookie = self.cookie0 + ";" + "XSRF-TOKEN=" + self.csrf_token
+            return True
+        except:
+            return False
+
+    def get_cookie_token(self):
+        header = {'Cookie': self.cookie, 'X-XSRF-TOKEN': self.csrf_token}
+        get_headers = self.get_base_headers(header)
+        return get_headers
+
+    def get_base_headers(self, headers):
+        base_headers = {
+            'Accept': 'application/json, text/plain, */*',
+            'Accept-Encoding': 'gzip,deflate',
+            'Accept-Language': 'zh-CN,zh;q=0.9',
+            'Connection': 'keep-alive',
+            "Content-Type": "application/json",
+            "Origin": self.server_domain,
+            'Host': self.host,
+            'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36'
+        }
+        if headers != {}:
+            for k, v in headers.items():
+                base_headers[k] = v
+        return base_headers

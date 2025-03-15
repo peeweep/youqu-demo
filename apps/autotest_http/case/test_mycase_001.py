@@ -5,13 +5,24 @@
 :Date  :2025/03/15 14:56:18
 """
 from apps.autotest_http.case import BaseCase
-from apps.autotest_http.widget import HttpWidget
+from apps.autotest_http.api import HttpApi
+
 
 class TestMyCase(BaseCase):
 
     def test_mycase_001(self):
-        """this is my test case"""
-        # 用例步骤，调用方法层封装好的方法进行操作
-        HttpWidget().click_xxx_by_attr()
-        # 在关键节点进行断言
-        self.assert_true(True)
+        """【接口测试-管理员】管理员登录"""
+        # 接口请求管理员登录
+        # 接口请求成功
+        self.api = HttpApi
+        self.host = "localhost"
+        self.server_domain = "http://" + self.host + "/"
+        self.name = "admin"
+        self.password = "123456"
+        status, content = self.api.login_by_api()
+        self.assert_api_response(
+            actual_status=status,
+            actual_content=content,
+            expect_status=200,
+            expect_code=0, expect_msg='Login success'
+        )
