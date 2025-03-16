@@ -19,3 +19,4 @@ pytest-timeout==2.1.0
 python3-pyatspi
 tk
 Xlib
+youqu
